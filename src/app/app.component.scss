@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+
+$searchBarBackground: #fefefe;
+$backgroundColor: #f6f8ff;
+$blueColor: #0079ff;
+$redColor: #F74646;
+
+.all {
+  font-family: "Space Mono", monospace;
+  height: 100%;
+  background-color: $backgroundColor;
+  .container {
+    padding: 10px;
+    .header {
+      .title {
+        font-size: 26px;
+        font-weight: bold;
+      }
+      .themePicker {
+        p {
+          font-weight: bold;
+          font-size: 13px;
+        }
+      }
+      width: 100%;
+      padding: 10px;
+    }
+    .formZone {
+      width: 100%;
+      background-color: $searchBarBackground;
+      border-radius: 15px;
+      padding: 5px;
+      box-shadow: 5px 5px 15px 5px rgba(70, 96, 187, 0.198567);
+      ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline {
+        display: none;
+      }
+      .noResult{
+        font-size: 15px;
+        font-weight: bold;
+        color: $redColor;
+      }
+      .iconSearch {
+        margin: 5px;
+        img {
+          width: 24px;
+          height: auto;
+        }
+      }
+      button {
+        margin: 5px;
+        padding: 12px 24px;
+        background-color: $blueColor;
+        color: #fff;
+        font-weight: bold;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        &:hover {
+          background-color: #60abff;
+        }
+      }
+    }
+    .result {
+      margin-top: 15px;
+      padding: 20px;
+      border-radius: 15px;
+
+      background-color: $searchBarBackground;
+      box-shadow: 5px 5px 15px 5px rgba(70, 96, 187, 0.198567);
+      .login {
+        color: $blueColor;
+        font-size: 16px;
+      }
+      .avatar {
+        img {
+          border-radius: 50%;
+          width: 80%;
+        }
+      }
+      .info {
+        border-radius: 15px;
+        padding: 10px;
+        height: 85px;
+        background-color: $backgroundColor;
+      }
+    }
+  }
+}

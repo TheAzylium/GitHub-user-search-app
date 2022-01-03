@@ -1,0 +1,103 @@
+<div fxLayoutAlign="center center" class="all">
+  <div class="container" fxLayout="column" fxLayoutAlign="center center" fxFlex="50">
+    <div fxLayout="row" class="header" fxLayoutAlign="space-between center">
+      <div class="title">
+        devfinder
+      </div>
+      <div class="themePicker">
+        <p *ngIf="isDarkTheme">
+          Light
+          <img src="./../assets/icon-sun.svg" alt="sun">
+        </p>
+        <p *ngIf="!isDarkTheme">
+          Dark
+          <img src="./../assets/icon-moon.svg" alt="moon">
+        </p>
+      </div>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="start center" class="formZone">
+      <div fxFlex="4" class="iconSearch">
+        <img src="./../assets/icon-search.svg" alt="search">
+      </div>
+      <form [formGroup]="appForm" (submit)="submit()" fxLayoutAlign="space-between center" fxFlex="96">
+        <mat-form-field fxFlex="70">
+          <input matInput formControlName="name" placeholder=" Search GitHub username..." appearance="none" />
+        </mat-form-field>
+        <span class="noResult" fxFlex="15" *ngIf="noResult">
+          No results
+        </span>
+
+        <button type="submit" color="primary" fxFlex="20">Search</button>
+      </form>
+
+    </div>
+
+    <div *ngIf="results" class="result" fxLayout="row">
+      <div class="avatar" fxFlex="20">
+        <img src="https://sbcf.fr/wp-content/uploads/2018/03/sbcf-default-avatar.png" *ngIf="!results.avatar_url">
+        <img src="{{results.avatar_url}}" *ngIf="results.avatar_url">
+      </div>
+      <div fxFlex="80">
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+          <span>{{results.name}}</span>
+          <span>Joined {{results.created_at | date: 'dd MMM yyyy' }}</span>
+        </div>
+        <p class="login">@{{results.login}}</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum voluptatum eligendi labore consectetur sit
+          ratione deserunt ad eveniet tempore consequatur.</p>
+        <div fxLayout="row" class="info" fxLayoutAlign="space-between center">
+          <div fxLayout="column">
+            <span>Repos</span>
+            <span>{{results.public_repos}}</span>
+          </div>
+          <div fxLayout="column">
+            <span>Followers</span>
+            <span>{{results.followers}}</span>
+          </div>
+          <div fxLayout="column">
+            <span>Following</span>
+            <span>{{results.following}}</span>
+          </div>
+
+        </div>
+
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between center">
+          <div>
+            <div>
+              <img src="../assets/icon-location.svg" alt="location">
+              <span>
+                {{results.location || 'Not available'}}
+              </span>
+            </div>
+            <div>
+              <img src="../assets/icon-website.svg" alt="website">
+              <span>
+                {{results.blog || 'Not available'}}
+
+              </span>
+            </div>
+          </div>
+          <div>
+            <div>
+              <img src="../assets/icon-twitter.svg" alt="twitter">
+              <span>
+                {{results.twitter_username || 'Not available'}}
+
+              </span>
+            </div>
+            <div>
+              <img src="../assets/icon-company.svg" alt="company">
+              <span>
+                {{results.company || 'Not available'}}
+
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
