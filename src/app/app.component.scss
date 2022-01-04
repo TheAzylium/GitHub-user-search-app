@@ -3,7 +3,10 @@
 $searchBarBackground: #fefefe;
 $backgroundColor: #f6f8ff;
 $blueColor: #0079ff;
-$redColor: #F74646;
+$redColor: #f74646;
+$darkBlue: #4b6a9b;
+$lightBlue: #697c9a;
+$blueDark: #2b3442;
 
 .all {
   font-family: "Space Mono", monospace;
@@ -31,10 +34,19 @@ $redColor: #F74646;
       border-radius: 15px;
       padding: 5px;
       box-shadow: 5px 5px 15px 5px rgba(70, 96, 187, 0.198567);
-      ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline {
-        display: none;
+      ::ng-deep .mat-form-field-appearance-legacy {
+        .mat-form-field-wrapper {
+          padding-bottom: 10px;
+        }
+        .mat-form-field-label {
+          color: $darkBlue;
+        }
+        .mat-form-field-underline {
+          display: none;
+        }
       }
-      .noResult{
+
+      .noResult {
         font-size: 15px;
         font-weight: bold;
         color: $redColor;
@@ -62,11 +74,13 @@ $redColor: #F74646;
     }
     .result {
       margin-top: 15px;
-      padding: 20px;
+      padding: 50px;
       border-radius: 15px;
-
       background-color: $searchBarBackground;
       box-shadow: 5px 5px 15px 5px rgba(70, 96, 187, 0.198567);
+      .createdAt {
+        color: $lightBlue;
+      }
       .login {
         color: $blueColor;
         font-size: 16px;
@@ -79,10 +93,32 @@ $redColor: #F74646;
       }
       .info {
         border-radius: 15px;
-        padding: 10px;
+        padding: 50px;
         height: 85px;
         background-color: $backgroundColor;
+        .value {
+          color: $blueDark;
+          font-weight: bold;
+          font-size: 22px;
+        }
+        .title {
+          color: $darkBlue;
+          font-size: 13px;
+        }
+      }
+      .linkZone {
+        margin-top: 40px;
+        .link {
+          text-decoration: none;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
       }
     }
   }
+}
+
+.disableLink {
+  opacity: 0.5;
 }
