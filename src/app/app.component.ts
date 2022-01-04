@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
   constructor(private _fb: FormBuilder, private _appService: AppService) {}
 
   ngOnInit() {
-    this.getUser("octocat");
+    this.getUser("TheAzylium");
   }
 
   getUser(userName: string) {

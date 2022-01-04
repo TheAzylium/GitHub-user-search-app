@@ -113,6 +113,9 @@
               "**/*.spec.ts"
             ]
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }

@@ -7,18 +7,18 @@
       <div class="themePicker" (click)="switchColor()">
         <p *ngIf="isDarkTheme" class="lightTheme" fxLayoutAlign="start center" fxLayoutGap="10px">
           <span>Light</span>
-          <img src="../assets/icon-sun.svg" alt="" class="sun">
+          <img src="assets/icon-sun.svg" alt="" class="sun">
         </p>
         <p *ngIf="!isDarkTheme" class="darkTheme" fxLayoutAlign="start center" fxLayoutGap="10px" class="darkTheme">
           <span>Dark</span>
-          <img src="../assets/icon-moon.svg" alt="" class="moon">
+          <img src="assets/icon-moon.svg" alt="" class="moon">
         </p>
       </div>
     </div>
 
     <div fxLayout="row" fxLayoutAlign="start center" class="formZone">
       <div fxFlex="4" class="iconSearch" fxLayoutAlign="center">
-        <img src="../assets/icon-search.svg" alt="search" class="searchIcon">
+        <img src="assets/icon-search.svg" alt="search" class="searchIcon">
       </div>
       <form [formGroup]="appForm" (submit)="submit()" fxLayoutAlign="space-between center" fxFlex="96">
         <mat-form-field fxFlex="70">
@@ -64,25 +64,25 @@
         <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between center" class="linkZone">
           <div fxLayout="column" fxLayoutGap="15px">
             <div fxLayoutGap="15px" fxLayoutAlign="start center" [ngClass]="{'disableLink': !results.location}">
-              <img src="../assets/icon-location.svg" alt="location" class="socialIcon">
+              <img src="assets/icon-location.svg" alt="location" class="socialIcon">
               <span>
                 {{results.location || 'Not available'}}
               </span>
             </div>
             <div fxLayoutGap="15px" fxLayoutAlign="start center" [ngClass]="{'disableLink': !results.location}">
-              <img src="../assets/icon-website.svg" alt="website" class="socialIcon">
+              <img src="assets/icon-website.svg" alt="website" class="socialIcon">
               <a href="results.blog" class="link">{{results.blog || 'Not available'}}</a>
             </div>
           </div>
           <div fxLayout="column" fxLayoutGap="15px">
             <div fxLayoutGap="15px" fxLayoutAlign="start center" [ngClass]="{'disableLink': !results.twitter_username}">
-              <img src="../assets/icon-twitter.svg" alt="twitter" class="socialIcon">
+              <img src="assets/icon-twitter.svg" alt="twitter" class="socialIcon">
               <span>
                 {{results.twitter_username || 'Not available'}}
               </span>
             </div>
             <div fxLayoutGap="15px" fxLayoutAlign="start center" [ngClass]="{'disableLink': !results.company}">
-              <img src="../assets/icon-twitter.svg" alt="twitter" class="socialIcon">
+              <img src="assets/icon-twitter.svg" alt="twitter" class="socialIcon">
               <span>
                 {{results.company || 'Not available'}}
               </span>

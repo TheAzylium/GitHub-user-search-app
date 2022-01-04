@@ -10,7 +10,7 @@
     "prettier": "prettier --write \"**\"",
     "prettier:check": "prettier --check \"**\"",
     "commit": "git add . && node ./node_modules/gitmoji-cli/lib/cli -c && git pull && git push",
-    "build:pages": "ng build --prod --base-href 'https://theazylium.github.io/GitHub-user-search-app/'"
+    "deploy": "ng deploy --base-href=/GitHub-user-search-app/"
   },
   "private": true,
   "dependencies": {
