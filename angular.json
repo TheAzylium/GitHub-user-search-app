@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "cleanAngularApp": {
+    "GithubUserSearch": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -39,7 +39,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/cleanAngularApp",
+            "outputPath": "dist/GithubUserSearch",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -90,10 +90,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "cleanAngularApp:build:production"
+              "browserTarget": "GithubUserSearch:build:production"
             },
             "development": {
-              "browserTarget": "cleanAngularApp:build:development"
+              "browserTarget": "GithubUserSearch:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -101,7 +101,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "cleanAngularApp:build"
+            "browserTarget": "GithubUserSearch:build"
           }
         },
         "lint": {
@@ -117,5 +117,5 @@
       }
     }
   },
-  "defaultProject": "cleanAngularApp"
+  "defaultProject": "GithubUserSearch"
 }
