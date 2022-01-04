@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
     name: [undefined, Validators.required],
   });
 
-  isDarkTheme: boolean = false;
+  isDarkTheme: boolean = true;
 
   results: any;
 
@@ -34,6 +34,10 @@ export class AppComponent implements OnInit {
         this.noResult = true;
       }
     );
+  }
+
+  switchColor() {
+    this.isDarkTheme = !this.isDarkTheme;
   }
 
   submit() {
