@@ -41,7 +41,7 @@
       </div>
       <div fxFlex="70">
         <div fxLayout="row" fxLayoutAlign="space-between center">
-          <span>{{results.name}}</span>
+          <span class="name">{{results.name}}</span>
           <span class="createdAt">Joined {{results.created_at | date: 'dd MMM yyyy' }}</span>
         </div>
         <p class="login">@{{results.login}}</p>
@@ -64,7 +64,7 @@
         </div>
 
         <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between center" class="linkZone">
-          <div>
+          <div fxLayout="column" fxLayoutGap="15px">
             <div fxLayoutGap="15px" fxLayoutAlign="start center" [ngClass]="{'disableLink': !results.location}">
               <img src="../assets/icon-location.svg" alt="location">
               <span>
@@ -76,7 +76,7 @@
               <a href="results.blog" class="link">{{results.blog || 'Not available'}}</a>
             </div>
           </div>
-          <div>
+          <div fxLayout="column" fxLayoutGap="15px">
             <div fxLayoutGap="15px" fxLayoutAlign="start center" [ngClass]="{'disableLink': !results.twitter_username}">
               <img src="../assets/icon-twitter.svg" alt="twitter">
               <span>
