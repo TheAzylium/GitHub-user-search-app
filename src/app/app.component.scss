@@ -197,7 +197,7 @@ $darkThemeLightBlue: #1e2a47;
       }
       button {
         margin: 5px;
-        padding: 12px 24px;
+        padding: 10px ;
         font-weight: bold;
         border: none;
         border-radius: 10px;
@@ -223,7 +223,7 @@ $darkThemeLightBlue: #1e2a47;
       }
       .info {
         border-radius: 15px;
-        padding: 50px;
+        padding: 10px;
         height: 85px;
         .value {
           font-weight: bold;
@@ -248,4 +248,14 @@ $darkThemeLightBlue: #1e2a47;
 
 .disableLink {
   opacity: 0.5;
+}
+
+
+@media screen and (max-width: 750px) {
+  .title {
+    font-size: 11px!important;
+  }
+  .value {
+    font-size: 16px!important;
+  }
 }

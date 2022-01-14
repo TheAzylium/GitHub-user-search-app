@@ -16,7 +16,7 @@
       </div>
     </div>
 
-    <div fxLayout="row" fxLayoutAlign="start center" class="formZone">
+    <div fxLayout="row" fxLayoutAlign="start center" class="formZone" fxFlex="100">
       <div fxFlex="4" class="iconSearch" fxLayoutAlign="center">
         <img src="assets/icon-search.svg" alt="search" class="searchIcon">
       </div>
@@ -32,60 +32,70 @@
       </form>
     </div>
 
-    <div *ngIf="results" class="result" fxLayout="row">
-      <div class="avatar" fxFlex="30">
-        <img src="https://sbcf.fr/wp-content/uploads/2018/03/sbcf-default-avatar.png" *ngIf="!results.avatar_url">
-        <img src="{{results.avatar_url}}" *ngIf="results.avatar_url">
+    <div *ngIf="results" class="result" fxLayout="column" fxFlex="100">
+      <div fxFlex="100">
+        <div class="avatar" fxFlex="30">
+          <img src="https://sbcf.fr/wp-content/uploads/2018/03/sbcf-default-avatar.png" *ngIf="!results.avatar_url">
+          <img src="{{results.avatar_url}}" *ngIf="results.avatar_url">
+        </div>
+        <div fxLayout="row" fxLayout.lt-lg="column" fxFlex="70" fxLayoutAlign="space-between">
+          <div fxLayout="column">
+            <span class="name">{{results.name}}</span>
+            <p class="login">@{{results.login}}</p>
+          </div>
+          <div>
+            <span class="createdAt">Joined {{results.created_at | date: 'dd MMM yyyy' }}</span>
+          </div>
+        </div>
       </div>
-      <div fxFlex="70">
-        <div fxLayout="row" fxLayoutAlign="space-between center">
-          <span class="name">{{results.name}}</span>
-          <span class="createdAt">Joined {{results.created_at | date: 'dd MMM yyyy' }}</span>
-        </div>
-        <p class="login">@{{results.login}}</p>
-        <p class="textContent">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum voluptatum eligendi
-          labore consectetur sit
-          ratione deserunt ad eveniet tempore consequatur.</p>
-        <div fxLayout="row" class="info" fxLayoutAlign="space-between center">
-          <div fxLayout="column">
-            <span class="title">Repos</span>
-            <span class="value">{{results.public_repos}}</span>
+      <div fxLayout="row" fxLayoutAlign="end">
+        <div fxFlex="70" fxFlex.lt-lg="100">
+          <p class="textContent">{{results.bio || 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum
+            voluptatum eligendi
+            labore consectetur sit
+            ratione deserunt ad eveniet tempore consequatur.'}}</p>
+          <div fxLayout="row" class="info" fxLayoutAlign="space-between center">
+            <div fxLayout="column" fxFlex="33" >
+              <span class="title" fxLayoutAlign="center">Repos</span>
+              <span class="value" fxLayoutAlign="center">{{results.public_repos}}</span>
+            </div>
+            <div fxLayout="column" fxFlex="33">
+              <span class="title" fxLayoutAlign="center">Followers</span>
+              <span class="value" fxLayoutAlign="center">{{results.followers}}</span>
+            </div>
+            <div fxLayout="column" fxFlex="33">
+              <span class="title" fxLayoutAlign="center">Following</span>
+              <span class="value" fxLayoutAlign="center">{{results.following}}</span>
+            </div>
           </div>
-          <div fxLayout="column">
-            <span class="title">Followers</span>
-            <span class="value">{{results.followers}}</span>
-          </div>
-          <div fxLayout="column">
-            <span class="title">Following</span>
-            <span class="value">{{results.following}}</span>
-          </div>
-        </div>
 
-        <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between center" class="linkZone">
-          <div fxLayout="column" fxLayoutGap="15px">
-            <div fxLayoutGap="15px" fxLayoutAlign="start center" [ngClass]="{'disableLink': !results.location}">
-              <img src="assets/icon-location.svg" alt="location" class="socialIcon">
-              <span>
-                {{results.location || 'Not available'}}
-              </span>
+          <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="10px" fxLayoutAlign="space-between center" fxLayoutAlign.sm="start" class="linkZone">
+            <div fxLayout="column" fxLayoutGap="15px">
+              <div fxLayoutGap="15px" fxLayoutAlign="start center" [ngClass]="{'disableLink': !results.location}">
+                <img src="assets/icon-location.svg" alt="location" class="socialIcon">
+                <span>
+                  {{results.location || 'Not available'}}
+                </span>
+              </div>
+              <div fxLayoutGap="15px" fxLayoutAlign="start center" [ngClass]="{'disableLink': !results.location}">
+                <img src="assets/icon-website.svg" alt="website" class="socialIcon">
+                <a href="results.blog" class="link">{{results.blog || 'Not available'}}</a>
+              </div>
             </div>
-            <div fxLayoutGap="15px" fxLayoutAlign="start center" [ngClass]="{'disableLink': !results.location}">
-              <img src="assets/icon-website.svg" alt="website" class="socialIcon">
-              <a href="results.blog" class="link">{{results.blog || 'Not available'}}</a>
-            </div>
-          </div>
-          <div fxLayout="column" fxLayoutGap="15px">
-            <div fxLayoutGap="15px" fxLayoutAlign="start center" [ngClass]="{'disableLink': !results.twitter_username}">
-              <img src="assets/icon-twitter.svg" alt="twitter" class="socialIcon">
-              <span>
-                {{results.twitter_username || 'Not available'}}
-              </span>
-            </div>
-            <div fxLayoutGap="15px" fxLayoutAlign="start center" [ngClass]="{'disableLink': !results.company}">
-              <img src="assets/icon-company.svg" alt="company" class="socialIcon">
-              <span>
-                {{results.company || 'Not available'}}
-              </span>
+            <div fxLayout="column" fxLayoutGap="15px">
+              <div fxLayoutGap="15px" fxLayoutAlign="start center"
+                [ngClass]="{'disableLink': !results.twitter_username}">
+                <img src="assets/icon-twitter.svg" alt="twitter" class="socialIcon">
+                <span>
+                  {{results.twitter_username || 'Not available'}}
+                </span>
+              </div>
+              <div fxLayoutGap="15px" fxLayoutAlign="start center" [ngClass]="{'disableLink': !results.company}">
+                <img src="assets/icon-company.svg" alt="company" class="socialIcon">
+                <span>
+                  {{results.company || 'Not available'}}
+                </span>
+              </div>
             </div>
           </div>
         </div>

@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
         this.noResult = false;
         this.results = user;
       },
-      (error) => {
+      () => {
         this.noResult = true;
       }
     );
